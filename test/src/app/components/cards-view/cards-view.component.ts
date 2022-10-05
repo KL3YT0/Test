@@ -23,7 +23,7 @@ export class CardsViewComponent implements OnInit {
 
   getCards() {
     return this.titleQuery
-      ? this.cardsService.getCards().filter((card) => card.title.includes(this.titleQuery))
+      ? this.cardsService.getCards().filter((card) => card.title.toLowerCase().includes(this.titleQuery.toLowerCase()))
       : this.cardsService.getCards();
   }
 
