@@ -1,0 +1,23 @@
+<div class="w-96">
+  <form [formGroup]="form" class="flex flex-col">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Название:</mat-label>
+      <input matInput placeholder="Название" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Дата выполнения:</mat-label>
+      <input matInput formControlName="completedAt" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Описание:</mat-label>
+      <textarea matInput placeholder="Описание:" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button (click)="addCard()" mat-flat-button color="primary">Добавить</button>
+  </form>
+</div>

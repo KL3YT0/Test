@@ -20,13 +20,14 @@ class CardsServise {
 
   setCards(cards: Card[]) {
     this.cardsSource$.next(cards);
+    this.saveLocalStorage();
   }
 
   addCard(card: CardBlank) {
     const createdAt = Date.now().toString();
     const id = this.getMaxId();
 
-    this.cardsSource$.next([...this.getCards(), { ...card, createdAt, id }]);
+    this.setCards([...this.getCards(), { ...card, createdAt, id }]);
   }
 
   copyCard(id: number) {
