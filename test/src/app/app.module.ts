@@ -20,9 +20,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { AddCardComponent } from './components/add-card/add-card.component';
+import { CardsViewComponent } from './components/cards-view/cards-view.component';
 
 @NgModule({
-  declarations: [AppComponent, EditorComponent, AddCardComponent],
+  declarations: [AppComponent, EditorComponent, AddCardComponent, CardsViewComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

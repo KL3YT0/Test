@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormControlStatus } from '@angular/forms';
 
 import { MatDialogRef } from '@angular/material/dialog';
 import { CardBlank } from 'src/app/models/cards.model';
@@ -22,13 +22,14 @@ export class AddCardComponent implements OnInit {
 
   addCard() {
     const { title, completedAt, description } = this.form.value;
-
-    console.log(completedAt)
-
     this.matDialogRef.close({ title, completedAt, description });
   }
 
-  formatDate(date: Date) {
-    return date.toISOString().slice(0, 10);
+  close() {
+    this.matDialogRef.close(null);
+  }
+
+  get formIsReady() {
+    return this.form.status === 'VALID';
   }
 }
