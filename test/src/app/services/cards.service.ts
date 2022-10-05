@@ -1,16 +1,8 @@
 import { BehaviorSubject, max } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Card, CardBlank } from '../models/cards.model';
 
-interface CardBlank {
-  title: string;
-  completedAt: string;
-  description: string;
-}
-
-interface Card extends CardBlank {
-  id: number;
-  createdAt: string;
-}
+const CARDS_KEY = 'cards';
 
 @Injectable({ providedIn: 'root' })
 class CardsServise {
@@ -48,10 +40,8 @@ class CardsServise {
   }
 
   removeCard(id: number) {
-    this.cardsSource$.next(
-      this.getCards().filter((card) => {
-        card.id !== id;
-      })
+    this.setCards(
+      this.getCards().filter(card => card.id !== id)
     );
   }
 
@@ -62,15 +52,15 @@ class CardsServise {
       maxId = card.id > maxId ? card.id : maxId;
     });
 
-    return maxId;
+    return ++maxId;
   }
 
   saveLocalStorage(): void {
-    localStorage.setItem('cards', JSON.stringify(this.getCards()));
+    localStorage.setItem(CARDS_KEY, JSON.stringify(this.getCards()));
   }
 
   getLocalStorage(): Card[] | null {
-    const cards = localStorage.getItem('cards');
+    const cards = localStorage.getItem(CARDS_KEY);
 
     if (!cards) {
       return null;
