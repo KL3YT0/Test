@@ -1,6 +1,7 @@
 import { BehaviorSubject, max } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Card, CardBlank } from '../models/cards.model';
+import { Swap } from '../models/cards.model';
 
 const CARDS_KEY = 'cards';
 
@@ -41,9 +42,7 @@ class CardsServise {
   }
 
   removeCard(id: number) {
-    this.setCards(
-      this.getCards().filter(card => card.id !== id)
-    );
+    this.setCards(this.getCards().filter((card) => card.id !== id));
   }
 
   getMaxId(): number {
@@ -54,6 +53,25 @@ class CardsServise {
     });
 
     return ++maxId;
+  }
+
+  swapCard(id: number, swapAs: Swap) {
+    const cards = this.getCards();
+
+    const swappedIndex = cards.findIndex((card) => card.id === id);
+    const swapped = cards[swappedIndex];
+
+    const swappedWithIndex = swapAs === Swap.DOWN ? swappedIndex + 1 : swappedIndex - 1;
+    const swappedWith = cards[swappedWithIndex];
+
+    if (!swappedWith) {
+      return;
+    }
+
+    cards[swappedIndex] = { ...swappedWith };
+    cards[swappedWithIndex] = { ...swapped };
+
+    this.setCards(cards);
   }
 
   saveLocalStorage(): void {

@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSortModule } from '@angular/material/sort';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   NgxMatDatetimePickerModule,
@@ -21,9 +24,10 @@ import { AppComponent } from './app.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { AddCardComponent } from './components/add-card/add-card.component';
 import { CardsViewComponent } from './components/cards-view/cards-view.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
-  declarations: [AppComponent, EditorComponent, AddCardComponent, CardsViewComponent],
+  declarations: [AppComponent, EditorComponent, AddCardComponent, CardsViewComponent, LayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,6 +41,9 @@ import { CardsViewComponent } from './components/cards-view/cards-view.component
     MatNativeDateModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatSortModule,
+    MatMenuModule,
+    MatTableModule,
 
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,

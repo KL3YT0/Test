@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { CardsServise } from 'src/app/services/cards.service';
-import { Card, CardBlank } from 'src/app/models/cards.model';
+import { Card, CardBlank, Mode } from 'src/app/models/cards.model';
 import { AddCardComponent } from 'src/app/components/add-card/add-card.component';
 
 @Component({
@@ -16,7 +16,12 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {}
 
   openAddCardModal() {
-    const addCardModalRef = this.addCardModal.open(AddCardComponent);
+    const addCardModalRef = this.addCardModal.open(AddCardComponent, {
+      data: {
+        modalTitle: 'Добавление карточки',
+        mode: Mode.EDIT,
+      }
+    });
 
     addCardModalRef.afterClosed().subscribe((result) => {
       if (result) {
