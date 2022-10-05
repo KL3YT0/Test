@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { CardsServise } from 'src/app/services/cards.service';
 import { Card, CardBlank, Mode } from 'src/app/models/cards.model';
-import { AddCardComponent } from 'src/app/components/add-card/add-card.component';
+import { AddCardComponent } from 'src/app/components/widgets/add-card/add-card.component';
 
 @Component({
   selector: 'app-editor',

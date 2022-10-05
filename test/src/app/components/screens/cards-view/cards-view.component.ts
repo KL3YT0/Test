@@ -6,7 +6,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
 
 import { Swap } from 'src/app/models/cards.model';
-import { AddCardComponent } from 'src/app/components/add-card/add-card.component';
+import { AddCardComponent } from 'src/app/components/widgets/add-card/add-card.component';
 import { Mode } from 'src/app/models/cards.model';
 
 @Component({

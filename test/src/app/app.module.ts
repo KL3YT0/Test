@@ -22,9 +22,9 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EditorComponent } from './components/editor/editor.component';
-import { AddCardComponent } from './components/add-card/add-card.component';
-import { CardsViewComponent } from './components/cards-view/cards-view.component';
+import { EditorComponent } from './components/screens/editor/editor.component';
+import { AddCardComponent } from './components/widgets/add-card/add-card.component';
+import { CardsViewComponent } from './components/screens/cards-view/cards-view.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
