@@ -1,6 +1,9 @@
+import { PipeTransform, Pipe } from '@angular/core';
 import { CardsServise } from 'src/app/services/cards.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { filter } from 'rxjs/operators';
 
 import { Swap } from 'src/app/models/cards.model';
 import { AddCardComponent } from 'src/app/components/add-card/add-card.component';
@@ -16,8 +19,12 @@ export class CardsViewComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  titleQuery: string = '';
+
   getCards() {
-    return this.cardsService.getCards();
+    return this.titleQuery
+      ? this.cardsService.getCards().filter((card) => card.title.includes(this.titleQuery))
+      : this.cardsService.getCards();
   }
 
   openAddCardModal(id: number) {

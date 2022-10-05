@@ -21,7 +21,7 @@ class CardsServise {
 
   setCards(cards: Card[]) {
     this.cardsSource$.next(cards);
-    this.saveLocalStorage();
+    this.setLocalStorage();
   }
 
   addCard(card: CardBlank) {
@@ -74,7 +74,7 @@ class CardsServise {
     this.setCards(cards);
   }
 
-  saveLocalStorage(): void {
+  setLocalStorage(): void {
     localStorage.setItem(CARDS_KEY, JSON.stringify(this.getCards()));
   }
 

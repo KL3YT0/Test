@@ -18,6 +18,7 @@ import {
   NgxMatNativeDateModule,
   NgxMatTimepickerModule,
 } from '@angular-material-components/datetime-picker';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     MatSortModule,
     MatMenuModule,
     MatTableModule,
+
+    FormsModule,
 
     NgxMatDatetimePickerModule,
     NgxMatNativeDateModule,

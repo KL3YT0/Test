@@ -9,7 +9,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Дата выполнения:</mat-label>
-      <input matInput [readonly]="!edited" [ngxMatDatetimePicker]="picker"  formControlName="completedAt">
+      <input matInput [readonly]="!edited" [ngxMatDatetimePicker]="picker" formControlName="completedAt">
       <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
     </mat-form-field>

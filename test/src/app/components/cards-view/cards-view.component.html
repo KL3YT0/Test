@@ -1,15 +1,28 @@
 <div class="p-20">
   <div class="bg-white">
+
     <div class="grid grid-cols-7 w-full">
-      <div class="font-bold text-xl text-indigo-500 p-5 col-span-2">Название</div>
+      <div class="p-5 col-span-2 flex flex-col">
+        <p class="font-bold text-xl text-indigo-500 ">Название</p>
+        <input [(ngModel)]="titleQuery" placeholder="Начините ввводить название" type="text" matInput
+          class="outline-none text-gray-500">
+      </div>
+      
       <div class="font-bold text-xl text-indigo-500 p-5 col-span-2">Дата создания</div>
       <div class="font-bold text-xl text-indigo-500 p-5 col-span-2">Дата выполнения</div>
     </div>
+
     <div *ngFor="let row of getCards()" class="grid grid-cols-7 w-full cursor-pointer">
       <div (click)="openAddCardModal(row.id)" class="font-medium text-gray-600 p-5 col-span-2">{{row.title}}</div>
-      <div (click)="openAddCardModal(row.id)" class="font-medium text-gray-600 p-5 col-span-2">{{row.createdAt | date:'medium'}}</div>
-      <div (click)="openAddCardModal(row.id)" class="font-medium text-gray-600 p-5 col-span-2">{{row.completedAt| date:'medium'}}</div>
+
+      <div (click)="openAddCardModal(row.id)" class="font-medium text-gray-600 p-5 col-span-2">{{row.createdAt |
+        date:'medium'}}</div>
+
+      <div (click)="openAddCardModal(row.id)" class="font-medium text-gray-600 p-5 col-span-2">{{row.completedAt|
+        date:'medium'}}</div>
+
       <button mat-button [matMenuTriggerFor]="menu" class="col-span-1" color="primary">Переместить</button>
+
       <mat-menu #menu="matMenu" xPosition="before">
         <button (click)="moveUp(row.id)" mat-menu-item color="primary">Вверх</button>
         <button (click)="moveDown(row.id)" mat-menu-item>Вниз</button>
